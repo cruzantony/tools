@@ -1,0 +1,27 @@
+# Install Docker Engine on EC2 Instance
+sudo amazon-linux-extras install docker
+sudo service docker start
+sudo usermod -a -G docker ssm-user
+
+LOGOUT and login
+
+# Install GIT and Download Demo Repo
+cd ~/
+mkdir code
+sudo yum install git
+git clone https://github.com/cruzantony/container.git
+
+
+# Build Docker Image
+cd container
+docker build -t container .
+docker images --filter reference=container
+
+# Run Container from Image
+docker run -t -i -p 80:80 container
+
+# Upload Container to Dockerhub (optional)
+docker login --username=YOUR_USER
+docker images
+docker tag IMAGEID YOUR_USER/container
+docker push YOUR_USER/container:latest
