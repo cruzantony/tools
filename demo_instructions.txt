@@ -28,3 +28,6 @@ docker push YOUR_USER/container:latest
 
 #For fargate Image
 docker.io/130470/container
+
+#Port mapping
+80 TCP
