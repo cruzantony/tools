@@ -25,3 +25,6 @@ docker login --username=YOUR_USER
 docker images
 docker tag IMAGEID YOUR_USER/container
 docker push YOUR_USER/container:latest
+
+#For fargate Image
+docker.io/130470/container
